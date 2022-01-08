@@ -1,15 +1,30 @@
 <template>
-  <HeaderComponent />
-  <router-view class="container" />
+  <div class="min-vh-100 vh-100">
+    <HeaderComponent />
+    <div class="container">
+      <router-view />
+    </div>
+  </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 import HeaderComponent from "@/components/HeaderComponent.vue";
 
 export default {
   name: "App",
   components: {
     HeaderComponent,
+  },
+  methods: {
+    ...mapActions(["mouseWheelAction"]),
+  },
+  created() {
+    /* Add the event listeners for each event. */
+    document.addEventListener("wheel", this.mouseWheelAction);
+    document.addEventListener("mousewheel", this.mouseWheelAction);
+    document.addEventListener("DOMMouseScroll", this.mouseWheelAction);
   },
 };
 </script>

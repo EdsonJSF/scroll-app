@@ -1,11 +1,9 @@
 <template>
-  <div>HomeComponent</div>
+  <div>BalancePage works</div>
 </template>
-
 <script>
 export default {
-  name: "HomeComponent",
+  name: "BalancePage",
 };
 </script>
-
 <style lang="scss" scoped></style>

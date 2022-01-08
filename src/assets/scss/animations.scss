@@ -1,0 +1,16 @@
+.animateBlock {
+  height: 1rem;
+  position: relative;
+  animation: blocks 1s ease;
+}
+
+@keyframes blocks {
+  0% {
+    bottom: -60vh;
+    opacity: 1;
+  }
+  100% {
+    bottom: 0;
+    opacity: 1;
+  }
+}
