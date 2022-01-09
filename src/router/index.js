@@ -4,7 +4,7 @@ import store from "../store";
 const routes = [
   { path: "/:pathMatch(.*)*", redirect: "/" },
   {
-    path: "/home",
+    path: "/",
     name: "home",
     component: () => import("../views/HomePage.vue"),
   },
