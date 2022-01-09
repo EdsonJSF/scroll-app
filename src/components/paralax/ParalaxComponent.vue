@@ -20,6 +20,7 @@ export default {
     LoremComponent,
   },
   methods: {
+    /* Select elements for animation */
     Paralax() {
       const els = document.querySelectorAll(".paralax");
       if (!els.length) return;
@@ -28,6 +29,8 @@ export default {
         this.isScrolledIntoView(el);
       }
     },
+
+    /* Check if the element is visible */
     isScrolledIntoView(el) {
       const rect = el.getBoundingClientRect();
       const elemTop = rect.top;

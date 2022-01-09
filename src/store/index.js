@@ -33,22 +33,17 @@ export default createStore({
 
       /* Determine the direction of the scroll (< 0 → up, > 0 → down). */
       let mouseData = (e.deltaY || e.wheelDelta || e.detail) >> 10 || 1;
-      commit("updateMouseWheel", mouseData);
+      commit("updateMouseWheel", mouseData); // 1 = down || -1 = up
 
       /* Select Function */
       let funcion = router.currentRoute._value.name;
-      if (funcion === "blocks") dispatch("blocks", mouseData + 1);
+      if (funcion === "blocks") dispatch("blocks", mouseData);
     },
 
+    /* Add or remove elements to push blocks */
     blocks({ state, commit }, data) {
-      if (data) {
-        if (state.elements < 16) {
-          commit("putElements", 1);
-        }
-      } else {
-        if (state.elements) {
-          commit("putElements", -1);
-        }
+      if (state.elements >= 0 && state.elements < 16) {
+        commit("putElements", data);
       }
     },
   },

@@ -18,6 +18,7 @@ export default {
     };
   },
   created() {
+    /* Adds an array routes from router */
     this.$router.options.routes.map((route, index) => {
       if (index) {
         this.routes.push({ name: route.name, path: route.path });

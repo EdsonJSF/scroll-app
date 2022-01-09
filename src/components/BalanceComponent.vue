@@ -19,10 +19,11 @@ export default {
     };
   },
   methods: {
+    /* change the position of two elements */
     balance() {
-      let velocity = 5;
-      this.balance1 += this.mouseWheel * velocity;
-      this.balance2 += this.mouseWheel * -velocity;
+      let speed = 5;
+      this.balance1 += this.mouseWheel * speed;
+      this.balance2 += this.mouseWheel * -speed;
 
       if (this.balance1 <= 0) {
         this.balance1 = 0;
@@ -34,6 +35,8 @@ export default {
       }
       this.changeBalance();
     },
+
+    /* Set the positions */
     changeBalance() {
       let balance1 = document.querySelector(".balance1");
       let balance2 = document.querySelector(".balance2");
