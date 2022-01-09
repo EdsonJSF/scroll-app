@@ -1,10 +1,6 @@
 <template>
-  <div class="min-vh-100 vh-100">
-    <HeaderComponent />
-    <div class="container">
-      <router-view />
-    </div>
-  </div>
+  <HeaderComponent />
+  <router-view />
 </template>
 
 <script>

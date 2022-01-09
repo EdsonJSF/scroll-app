@@ -13,11 +13,11 @@ const routes = [
     name: "balance",
     component: () => import("../views/BalancePage.vue"),
   },
-  // {
-  //   path: "/paralax",
-  //   name: "paralax",
-  //   component: () => import("../views/ParalaxPage.vue"),
-  // },
+  {
+    path: "/paralax",
+    name: "paralax",
+    component: () => import("../views/ParalaxPage.vue"),
+  },
 ];
 
 const router = createRouter({

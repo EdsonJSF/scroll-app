@@ -3,15 +3,21 @@ import router from "../router";
 
 export default createStore({
   state: {
+    mouseWheel: null,
     elements: 0,
     balance1: 44,
     balance2: 44,
   },
   mutations: {
+    updateMouseWheel(state, data) {
+      state.mouseWheel = null;
+      state.mouseWheel = data;
+    },
+
     resetAll(state) {
       state.elements = 0;
-      state.balance1 = 44;
-      state.balance2 = 44;
+      state.balance1 = 45;
+      state.balance2 = 45;
     },
 
     putElements(state, data) {
@@ -24,10 +30,10 @@ export default createStore({
     },
     changeBalance1(state) {
       state.balance1 = 0;
-      state.balance2 = 88;
+      state.balance2 = 85;
     },
     changeBalance2(state) {
-      state.balance1 = 88;
+      state.balance1 = 85;
       state.balance2 = 0;
     },
   },
@@ -36,19 +42,20 @@ export default createStore({
       commit("resetAll");
     },
 
-    mouseWheelAction({ dispatch }, e) {
+    /* The function that will run when the events are triggered. */
+    mouseWheelAction({ commit, dispatch }, e) {
       /* Check whether the wheel event is supported. */
       let supportsWheel = e.type == "wheel" ? true : false;
       if (!supportsWheel) return;
 
       /* Determine the direction of the scroll (< 0 → up, > 0 → down). */
       let mouseData = (e.deltaY || e.wheelDelta || e.detail) >> 10 || 1;
-      mouseData += 1;
+      commit("updateMouseWheel", mouseData);
 
       /* Select Function */
       let funcion = router.currentRoute._value.name;
-      if (funcion === "blocks") dispatch("blocks", mouseData);
-      if (funcion === "balance") dispatch("balance", mouseData - 1);
+      if (funcion === "blocks") dispatch("blocks", mouseData + 1);
+      if (funcion === "balance") dispatch("balance", mouseData);
     },
 
     blocks({ state, commit }, data) {

@@ -23,10 +23,10 @@ export default {
 }
 .balance1 {
   left: 10vw;
-  top: 44vh;
+  top: 45vh;
 }
 .balance2 {
   right: 10vw;
-  top: 44vh;
+  top: 45vh;
 }
 </style>

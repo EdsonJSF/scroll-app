@@ -1,13 +1,14 @@
 .animateBlock {
-  height: 1rem;
+  min-height: 1rem;
   position: relative;
   animation: blocks 1s ease;
+  opacity: 1;
 }
 
 @keyframes blocks {
   0% {
     bottom: -60vh;
-    opacity: 1;
+    opacity: 0;
   }
   100% {
     bottom: 0;

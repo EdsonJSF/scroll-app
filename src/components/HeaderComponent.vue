@@ -1,5 +1,5 @@
 <template>
-  <div id="nav">
+  <div id="HeaderComponent">
     <span v-for="(route, index) in routes" :key="index" :to="route.path">
       <span v-if="index"> | </span>
       <router-link :to="route.path">
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#nav {
+#HeaderComponent {
   padding: 30px;
 
   a {
