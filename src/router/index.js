@@ -8,11 +8,11 @@ const routes = [
     name: "blocks",
     component: () => import("../views/BlocksPage.vue"),
   },
-  // {
-  //   path: "/balance",
-  //   name: "balance",
-  //   component: () => import("../views/BalancePage.vue"),
-  // },
+  {
+    path: "/balance",
+    name: "balance",
+    component: () => import("../views/BalancePage.vue"),
+  },
   // {
   //   path: "/paralax",
   //   name: "paralax",
