@@ -14,9 +14,10 @@ export default {
     HeaderComponent,
   },
   methods: {
-    ...mapActions(["mouseWheelAction"]),
+    ...mapActions(["mouseWheelAction", "addRoutes"]),
   },
   created() {
+    this.addRoutes();
     /* Add the event listeners for each event. */
     document.addEventListener("wheel", this.mouseWheelAction);
     document.addEventListener("mousewheel", this.mouseWheelAction);

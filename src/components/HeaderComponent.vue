@@ -1,43 +1,54 @@
 <template>
-  <div id="HeaderComponent">
-    <span v-for="(route, index) in routes" :key="index" :to="route.path">
-      <span v-if="index"> | </span>
-      <router-link :to="route.path">
-        {{ route.name }}
-      </router-link>
-    </span>
-  </div>
+  <nav id="HeaderComponent" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <router-link :to="routes[0]" class="navbar-brand"
+        ><img src="../assets/logo.png" alt="home icon"
+      /></router-link>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <router-link
+            v-for="(route, index) in routes"
+            :key="index"
+            :to="route.path"
+            class="nav-link"
+            >{{ route.name }}</router-link
+          >
+        </div>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "HeaderComponent",
-  data() {
-    return {
-      routes: [],
-    };
-  },
-  created() {
-    /* Adds an array routes from router */
-    this.$router.options.routes.map((route, index) => {
-      if (index) {
-        this.routes.push({ name: route.name, path: route.path });
-      }
-    });
+  computed: {
+    ...mapState(["routes"]),
   },
 };
 </script>
 
 <style lang="scss" scoped>
 #HeaderComponent {
-  padding: 30px;
-
   a {
-    font-weight: bold;
-    color: var(--bs-primary);
-
+    img {
+      width: 2rem;
+    }
     &.router-link-exact-active {
-      color: var(--bs-success);
+      color: var(--bs-white);
     }
   }
 }

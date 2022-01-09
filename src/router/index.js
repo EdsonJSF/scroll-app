@@ -4,7 +4,12 @@ import store from "../store";
 const routes = [
   { path: "/:pathMatch(.*)*", redirect: "/" },
   {
-    path: "/",
+    path: "/home",
+    name: "home",
+    component: () => import("../views/HomePage.vue"),
+  },
+  {
+    path: "/blocks",
     name: "blocks",
     component: () => import("../views/BlocksPage.vue"),
   },
@@ -14,8 +19,8 @@ const routes = [
     component: () => import("../views/BalancePage.vue"),
   },
   {
-    path: "/paralax",
-    name: "paralax",
+    path: "/animacion",
+    name: "animacion",
     component: () => import("../views/ParalaxPage.vue"),
   },
 ];

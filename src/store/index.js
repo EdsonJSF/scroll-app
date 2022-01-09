@@ -3,10 +3,15 @@ import router from "../router";
 
 export default createStore({
   state: {
+    routes: [],
     mouseWheel: null,
     elements: 0,
   },
   mutations: {
+    pushRoute(state, data) {
+      state.routes.push({ name: data.name, path: data.path });
+    },
+
     updateMouseWheel(state, data) {
       state.mouseWheel = null;
       state.mouseWheel = data;
@@ -21,6 +26,15 @@ export default createStore({
     },
   },
   actions: {
+    /* Adds an array routes from router */
+    addRoutes({ commit }) {
+      router.options.routes.map((route, index) => {
+        if (index) {
+          commit("pushRoute", route);
+        }
+      });
+    },
+
     resetState({ commit }) {
       commit("resetAll");
     },
